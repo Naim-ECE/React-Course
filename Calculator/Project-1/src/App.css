@@ -1,0 +1,12 @@
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator {
+  border: 0.11rem solid rgb(0, 0, 0, 0.38);
+  width: 30rem;
+  height: 56rem;
+  border-radius: 0.45rem;
+}

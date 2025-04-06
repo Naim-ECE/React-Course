@@ -1,0 +1,8 @@
+.container {
+    border: 0.12rem solid black;
+    border-radius: 0.35rem;
+    margin: 2rem;
+    width: 50%;
+    min-width: 15rem;
+    padding: 1rem;
+}

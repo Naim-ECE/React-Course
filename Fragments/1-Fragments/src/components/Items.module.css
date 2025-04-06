@@ -1,0 +1,14 @@
+#kg-item {
+    background-color: khaki;
+  }
+  
+.kg-span {
+    font-weight: 500;
+    color: brown;
+    float: left;
+  }
+
+.button {
+  float: right;
+  font-size: 0.64rem;
+}

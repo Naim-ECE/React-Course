@@ -1,0 +1,12 @@
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+.btntool {
+    font-size: 2rem;
+    height: 6rem;
+    width: 6rem;
+    margin: 0.85rem;
+  }

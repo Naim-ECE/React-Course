@@ -1,0 +1,21 @@
+.todo-container h1 {
+    font-weight: 700;
+    font-size: 2.7rem;
+    margin: 1.3rem;
+}
+
+.todo-container input{
+    width: 100%;
+}
+
+.items-container {
+    text-align: left;
+}
+
+.gap-row {
+    margin: 0.75rem;
+}
+
+.kg-button {
+    min-width: 4.4rem;
+}
