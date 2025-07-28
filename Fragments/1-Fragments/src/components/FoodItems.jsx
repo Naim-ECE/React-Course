@@ -5,7 +5,10 @@ const FoodItems = ({ khabars }) => {
   // let healthyFood = ["Rice", "Egg", "Beef", "Chicken", "Potato", "Kacchi"];
 
   let [activeItems, setActiveItems] = useState([]);
-
+  // let txtChange = true;
+  // if (!activeItems) {
+  //   txtChange = false;
+  // }
   let onBuyButton = (item) => {
     let newItem = [...activeItems, item];
     setActiveItems(newItem);
@@ -20,6 +23,7 @@ const FoodItems = ({ khabars }) => {
             khabar={item}
             bought={activeItems.includes(item)}
             handle={() => onBuyButton(item)}
+            // textChange={txtChange}
           />
         ))}
       </ul>

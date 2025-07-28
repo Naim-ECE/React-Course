@@ -1,6 +1,6 @@
 import styles from "./Items.module.css";
 
-let Items = ({ khabar, bought, handle }) => {
+let Items = ({ khabar, bought, handle, textChange }) => {
   var txt = "BUY";
   // if (bought) {
   //   txt = "GIVE IT BACK";
@@ -10,12 +10,17 @@ let Items = ({ khabar, bought, handle }) => {
   return (
     <>
       <li
-        className={`list-group-item ${bought && "active"}`}
         id={`${styles["kg-item"]}`}
+        className={`list-group-item ${bought && "active"}`}
       >
         <span className={`${styles["kg-span"]}`}>{khabar}</span>
-        <button className={`${styles.button}  btn btn-info`} onClick={handle}>
-          {txt}
+        <button
+          className={`${styles.button}  btn btn-info ${
+            bought && "btn btn-danger"
+          }`}
+          onClick={handle}
+        >
+          {!bought ? txt : "Bought"}
         </button>
       </li>
     </>
