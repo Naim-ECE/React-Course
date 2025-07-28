@@ -1,0 +1,8 @@
+.display {
+    border-radius: 0.45rem;
+    margin: 2rem;
+    width: 85%;
+    height: 10%;
+    font-size: 3.5rem;
+    text-align: right;
+  }
