@@ -2,7 +2,7 @@ import { useState } from "react";
 import Input from "./Input";
 import styles from "./Buttons.module.css";
 
-let Buttons = ({onButtonClick}) => {
+let Buttons = ({ onButtonClick }) => {
   let btn = [
     "C",
     "1",
@@ -27,7 +27,14 @@ let Buttons = ({onButtonClick}) => {
     <>
       <div className={styles.buttonContainer}>
         {btn.map((botam) => (
-          <button key={botam} className={styles.btntool} onClick={() => onButtonClick(botam)}>{botam}</button>
+          <button
+            key={botam}
+            className={styles.btntool}
+            onClick={() => onButtonClick(botam)}
+            // passing data to parent
+          >
+            {botam}
+          </button>
         ))}
       </div>
     </>
