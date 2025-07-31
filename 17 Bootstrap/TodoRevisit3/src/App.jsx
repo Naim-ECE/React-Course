@@ -14,7 +14,7 @@ function App() {
 
     setTodoItems((currValue) => [
       ...currValue,
-      { name: itemName, dueDate: itemDueDate },
+      { name: itemName, dueDate: itemDueDate }, //giver correct updates of values
     ]);
   };
 
