@@ -1,9 +1,11 @@
-import styles from "./WelcomeMessage.module.css"
+import styles from "./WelcomeMessage.module.css";
 
-const WelcomeMessage = () => {
+const WelcomeMessage = ({ todoItems }) => {
   return (
     <>
-      <p className={styles.inMessage}>Welcome! Let's add some tasks!</p>
+      {todoItems.length === 0 && (
+        <p className={styles.inMessage}>Welcome! Let's add some tasks!</p>
+      )}
     </>
   );
 };
