@@ -1,15 +1,17 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import styles from "./AddTodo.module.css";
 import { MdAddToPhotos } from "react-icons/md";
+import { TodoItemsContext } from "../store/todo-item-store";
 
-function AddTodo({ onNewItem }) {
+function AddTodo() {
+  const {addNewItem} = useContext(TodoItemsContext);
   const todoNameElement = useRef("");
   const todoDateElement = useRef("");
 
   const handleOnClick = () => {
     const todoName = todoNameElement.current.value;
     const todoDate = todoDateElement.current.value;
-    onNewItem(todoName, todoDate);
+    addNewItem(todoName, todoDate);
     todoNameElement.current.value = "";
     todoDateElement.current.value = "";
   };
