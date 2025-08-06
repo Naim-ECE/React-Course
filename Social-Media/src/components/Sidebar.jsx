@@ -1,9 +1,6 @@
 import styles from "./Sidebar.module.css";
 
 const Sidebar = ({ selectedTab, setSelectedTab }) => {
-  const handleOnClick = (tabName) => {
-    selectedTab(tabName);
-  };
   return (
     <div
       className={`d-flex flex-column flex-shrink-0 p-3 text-bg-dark ${styles.sidebar}`}
@@ -28,7 +25,7 @@ const Sidebar = ({ selectedTab, setSelectedTab }) => {
         <li
           className="nav-item"
           onClick={() => {
-            handleOnClick("Home");
+            setSelectedTab("Home");
           }}
         >
           <a
@@ -51,10 +48,15 @@ const Sidebar = ({ selectedTab, setSelectedTab }) => {
         </li>
         <li
           onClick={() => {
-            handleOnClick("Create Post");
+            setSelectedTab("Create Post");
           }}
         >
-          <a href="#" className="nav-link text-white">
+          <a
+            href="#"
+            className={`nav-link text-white ${
+              selectedTab === "Create Post" && "active"
+            }`}
+          >
             <svg
               className="bi pe-none me-2"
               width="16"
@@ -69,14 +71,7 @@ const Sidebar = ({ selectedTab, setSelectedTab }) => {
       </ul>
       <hr />
       <div className="dropdown">
-        <a
-          href="#"
-          className={`nav-link text-white ${
-            selectedTab === "Create Post" && "active"
-          }`}
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
+        <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
           <img
             src="https://github.com/mdo.png"
             alt=""
