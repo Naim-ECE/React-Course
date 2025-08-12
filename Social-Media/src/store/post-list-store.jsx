@@ -12,6 +12,8 @@ const postListReducer = (currPostList, action) => {
     newPostList = currPostList.filter(
       (post) => post.id !== action.payload.postID
     );
+  } else if (action.type === "ADD_POST") {
+    newPostList = [action.payload, ...currPostList];
   }
   return newPostList;
 };
@@ -22,7 +24,19 @@ const PostListProvider = ({ children }) => {
     DEFAULT_POST_LIST
   );
 
-  const addPost = () => {};
+  const addPost = (userID, postTitle, postBody, reactions, tags) => {
+    dispatchPostList({
+      type: "ADD_POST",
+      payload: {
+        id: Math.random(),
+        title: postTitle,
+        body: postBody,
+        reactions: reactions,
+        userID: userID,
+        tags: tags,
+      },
+    });
+  };
 
   const deletePost = (postID) => {
     dispatchPostList({
@@ -48,14 +62,6 @@ const DEFAULT_POST_LIST = [
     reactions: 2,
     userID: "user-9",
     tags: ["Cox's Bazar", "vacation", "Enjoying"],
-  },
-  {
-    id: "2",
-    title: "Got GPA-5 in HSC",
-    body: "Alhamdulillah! Today I'm excited to share that I've earned GPA-5 in my HSC exam. Pray for my upcoming success",
-    reactions: 21,
-    userID: "user-10",
-    tags: ["exam", "result", "blessed"],
   },
 ];
 
