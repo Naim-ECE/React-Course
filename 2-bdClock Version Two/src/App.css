@@ -1,0 +1,16 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.heading1 {
+  font-weight: 700;
+  font-size: 3rem;
+  margin-bottom: 1.1rem;
+}
+
+.txt1, .txt2 {
+  font-size: 2rem;
+}
