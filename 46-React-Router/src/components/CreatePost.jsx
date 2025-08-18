@@ -4,7 +4,7 @@ import { PostList } from "../store/post-list-store";
 const CreatePost = () => {
   const { addPost } = useContext(PostList);
 
-  const userIDElement = useRef();
+  const userIdElement = useRef();
   const postTitleElement = useRef();
   const postBodyElement = useRef();
   const reactionsElementLiked = useRef();
@@ -13,7 +13,7 @@ const CreatePost = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const userID = userIDElement.current.value;
+    const userId = userIdElement.current.value;
     const postTitle = postTitleElement.current.value;
     const postBody = postBodyElement.current.value;
     const reactions = {
@@ -22,9 +22,22 @@ const CreatePost = () => {
     };
     const tags = tagsElement.current.value.split(" ");
 
-    addPost(userID, postTitle, postBody, reactions, tags);
+    fetch("https://dummyjson.com/posts/add", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        title: postTitle,
+        body: postBody,
+        reactions: reactions || { likes: 0, dislikes: 0 },
+        userId: userId,
+        tags: tags,
+      }),
+    })
+      .then((res) => res.json())
+      .then(post => addPost(post));
 
-    userIDElement.current.value = "";
+
+    userIdElement.current.value = "";
     postTitleElement.current.value = "";
     postBodyElement.current.value = "";
     reactionsElementLiked.current.value = "";
@@ -36,12 +49,12 @@ const CreatePost = () => {
     <>
       <form className="create-post" onSubmit={handleSubmit}>
         <div className="mb-3">
-          <label htmlFor="userID" className="form-label">
+          <label htmlFor="userId" className="form-label">
             Enter your User ID here
           </label>
           <input
             type="text"
-            ref={userIDElement}
+            ref={userIdElement}
             className="form-control"
             id="body"
             placeholder="Your User ID"

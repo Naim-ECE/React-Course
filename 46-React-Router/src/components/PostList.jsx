@@ -5,37 +5,14 @@ import NoPostMessage from "./NoPostMessage";
 import LoadingSpinner from "./LoadingSpinner";
 
 const PostList = () => {
-  const { postList, addInitalPost } = useContext(PostListData);
-
-  const [fetching, setFetching] = useState(false);
-
-  useEffect(() => {
-    setFetching(true);
-
-    const controller = new AbortController();
-    console.log(controller);
-    const signal = controller.signal;
-
-    fetch("https://dummyjson.com/posts", { signal })
-      .then((res) => res.json())
-      .then((data) => {
-        addInitalPost(data.posts);
-        setFetching(false);
-      });
-    return () => {
-      console.log(`Cleaning up useEffect`);
-      controller.abort();
-    };
-  }, []);
-
-  const hendleGetPostClick = () => {};
+  const { postList, fetching } = useContext(PostListData);
 
   if (fetching) {
     return <LoadingSpinner />;
   } else if (postList.length === 0) {
     return (
       <>
-        <NoPostMessage onGetPostClick={hendleGetPostClick} />
+        <NoPostMessage />
       </>
     );
   }
