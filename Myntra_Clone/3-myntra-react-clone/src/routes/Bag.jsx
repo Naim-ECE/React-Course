@@ -1,7 +1,7 @@
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import HomeItem from "./components/HomeItem";
-function App() {
+import BagItem from "../components/BagItem";
+import BagSummary from "../components/BagSummary";
+
+const Bag = () => {
   const item = {
     id: "001",
     image: "images/1.jpg",
@@ -11,7 +11,7 @@ function App() {
     current_price: 606,
     discount_percentage: 42,
     return_period: 14,
-    delivery_date: "10 Oct 2023",
+    delivery_date: " 10 Oct 2023",
     rating: {
       stars: 4.5,
       count: 1400,
@@ -20,15 +20,16 @@ function App() {
 
   return (
     <>
-      <Header />
       <main>
-        <div className="items-container">
-          <HomeItem item={item} />
+        <div className="bag-page">
+          <div className="bag-items-container">
+            <BagItem item={item} />
+          </div>
+          <BagSummary />
         </div>
       </main>
-      <Footer />
     </>
   );
-}
+};
 
-export default App;
+export default Bag;
